@@ -15,6 +15,11 @@ export class ImgDirective {
   onError() {
     this.eleRef.nativeElement.src = this.srcImageNotFound;
   }
+  @HostListener('load')
+  onLoad() {
+    this.eleRef.nativeElement.style.height = 'inherit';
+    this.eleRef.nativeElement.style.width = 'initial';
+  }
 
   constructor(private eleRef:ElementRef<HTMLImageElement>) {
    }
