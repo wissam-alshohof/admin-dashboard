@@ -1,21 +1,28 @@
-import { Component, AfterViewInit, OnDestroy, ViewChild, Input, OnInit } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ViewChild, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { UPDATE_TYPE } from '../enums';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements AfterViewInit, OnInit, OnDestroy {
-  //get clients
 
   dataSource = new MatTableDataSource<any>([]);
+  Update_Type = UPDATE_TYPE
   @Input('data') data$!: Observable<any>
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
   @Input('colDefs') colDefs! : {def:string,caption:string}[];
 
+/**
+ * emit type of data manipulation
+ * @emit `UPDATE_TYPE = view | edit | delete ` and `element data`
+ */
+  @Output('onUpdate') onUpdate = new EventEmitter();
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   _destroy$ = new Subject();
   headersDef: string[] = [];
   ngAfterViewInit() {
@@ -27,6 +34,13 @@ export class TableComponent implements AfterViewInit, OnInit, OnDestroy {
   ngOnInit(): void {
     
     this.headersDef = this.colDefs.map(col => col['def']);
+  }
+
+  updateItem(item:any,type: string) {
+    this.onUpdate.next({
+      data:item,
+      type: type
+    });
   }
   ngOnDestroy() {
     this._destroy$.next('');

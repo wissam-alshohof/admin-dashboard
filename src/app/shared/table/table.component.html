@@ -12,15 +12,15 @@
             <mat-header-cell *matHeaderCellDef style="max-width:65px" >
                 view 
             </mat-header-cell>
-            <mat-cell *matCellDef="let cli"  style="max-width:65px">
-                <mat-icon>remove_red_eye</mat-icon>
+            <mat-cell *matCellDef="let cli"  style="max-width:65px" (click)="updateItem(cli,Update_Type.view)">
+                <mat-icon >remove_red_eye</mat-icon>
             </mat-cell>
         </ng-container>
         <ng-container matColumnDef="edit">
             <mat-header-cell *matHeaderCellDef  style="max-width:65px">
                 Edit 
             </mat-header-cell>
-            <mat-cell *matCellDef="let cli" style="max-width:65px">
+            <mat-cell *matCellDef="let cli" style="max-width:65px" (click)="updateItem(cli,Update_Type.edit)">
                 <mat-icon>edit</mat-icon>
             </mat-cell>
         </ng-container>
@@ -28,7 +28,7 @@
             <mat-header-cell *matHeaderCellDef style="max-width:65px">
                 Delete 
             </mat-header-cell>
-            <mat-cell *matCellDef="let cli" style="max-width:65px">
+            <mat-cell *matCellDef="let cli" style="max-width:65px" (click)="updateItem(cli,Update_Type.delete)">
                 <mat-icon>close</mat-icon>
             </mat-cell>
         </ng-container>

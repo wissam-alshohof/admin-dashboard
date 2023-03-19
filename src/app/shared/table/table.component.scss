@@ -1,0 +1,7 @@
+mat-cell:has(mat-icon) {
+    cursor: pointer;
+    transition: background-color ease-in .5s;
+}
+mat-cell:has(mat-icon):hover {
+    background-color: #aaa;
+}
