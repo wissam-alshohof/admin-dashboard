@@ -1,0 +1,39 @@
+<div class="flex-col flex-center">
+    <mat-table [dataSource]="dataSource">
+        <ng-container *ngFor="let colDef of colDefs" [matColumnDef]="colDef['def']">
+            <mat-header-cell *matHeaderCellDef>
+                {{ colDef['caption'] }}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let cli">
+                {{cli[colDef['def']]}}
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="view">
+            <mat-header-cell *matHeaderCellDef style="max-width:65px" >
+                view 
+            </mat-header-cell>
+            <mat-cell *matCellDef="let cli"  style="max-width:65px">
+                <mat-icon>remove_red_eye</mat-icon>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="edit">
+            <mat-header-cell *matHeaderCellDef  style="max-width:65px">
+                Edit 
+            </mat-header-cell>
+            <mat-cell *matCellDef="let cli" style="max-width:65px">
+                <mat-icon>edit</mat-icon>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef style="max-width:65px">
+                Delete 
+            </mat-header-cell>
+            <mat-cell *matCellDef="let cli" style="max-width:65px">
+                <mat-icon>close</mat-icon>
+            </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="headersDef.concat(['view','edit','delete'])"></mat-header-row>
+        <mat-row *matRowDef="let row;columns:headersDef.concat(['view','edit','delete']);"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
+</div>
