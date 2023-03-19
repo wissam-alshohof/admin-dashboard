@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon'
 import { CommonModule } from '@angular/common';
 import { ImgDirective } from './img.directive';
 
@@ -11,6 +12,6 @@ import { ImgDirective } from './img.directive';
   imports: [
     CommonModule
   ],
-  exports: [ImgDirective]
+  exports: [ImgDirective, MatIconModule]
 })
 export class SharedModule { }

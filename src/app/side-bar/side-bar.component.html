@@ -1,1 +1,20 @@
-<p>side-bar works!</p>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sideNav class="sidenav" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="!(isHandset$ | async)" color="primary">
+        <div style="height: 124px; margin-bottom: 5%;">
+            <img src="/assets/logo.png" alt="logo">
+        </div>
+        <mat-nav-list>
+            <a mat-list-item routerLink="/clients" routerLinkActive="active">Clients</a>
+            <a mat-list-item routerLink="/classes" routerLinkActive="active">Classes</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-nav-bar>
+            <button mat-icon-button (click)="sideNav.toggle()" *ngIf="isHandset$ | async">
+                <mat-icon aria-label="Menu">menu</mat-icon>
+            </button>
+        </app-nav-bar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

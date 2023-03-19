@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { map, Observable } from 'rxjs';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout'
 
 @Component({
   selector: 'app-side-bar',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class SideBarComponent {
 
+  doOpen = true;
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe([Breakpoints.XSmall])
+    .pipe(
+      map((result: BreakpointState) => result.matches)
+    );
+
+  constructor(private breakpointObserver: BreakpointObserver) {
+
+  }
 }
