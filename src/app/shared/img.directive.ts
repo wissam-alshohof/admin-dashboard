@@ -14,7 +14,6 @@ export class ImgDirective {
   @HostListener('error')
   onError() {
     this.eleRef.nativeElement.src = this.srcImageNotFound;
-    return true;
   }
 
   constructor(private eleRef:ElementRef<HTMLImageElement>) {
