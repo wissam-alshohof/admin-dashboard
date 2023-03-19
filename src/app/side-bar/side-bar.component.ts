@@ -10,7 +10,7 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 export class SideBarComponent {
 
   doOpen = true;
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe([Breakpoints.XSmall])
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe([Breakpoints.Handset])
     .pipe(
       map((result: BreakpointState) => result.matches)
     );

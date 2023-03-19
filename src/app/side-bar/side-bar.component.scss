@@ -1,16 +1,27 @@
 .sidenav-container {
     height: 100%;
-  }
-  
-  .sidenav {
+}
+
+.sidenav {
     width: 200px;
-  }
-  
-  .mat-toolbar.mat-primary {
+}
+
+.mat-toolbar.mat-primary {
     position: sticky;
     z-index: 1;
-  }
-  
-  .mat-toolbar.mat-primary button {
+}
+
+.mat-toolbar.mat-primary button {
     margin-right: 12px;
-  }
+}
+
+.active::before {
+    background-color: var(--mdc-list-list-item-focus-state-layer-color);
+    opacity: var(--mdc-list-list-item-focus-state-layer-opacity);
+}
+
+@media (max-width:500px) {
+    .mat-table {
+        overflow-x: auto;
+    }
+}
