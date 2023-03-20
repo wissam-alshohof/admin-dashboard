@@ -2,6 +2,15 @@ mat-cell:has(mat-icon) {
     cursor: pointer;
     transition: background-color ease-in .5s;
 }
+
 mat-cell:has(mat-icon):hover {
     background-color: #aaa;
+}
+
+mat-header-row {
+    background-color: #6975b5;
+}
+
+mat-header-cell {
+    color: white;
 }

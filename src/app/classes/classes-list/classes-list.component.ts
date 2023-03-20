@@ -45,7 +45,6 @@ export class ClassesListComponent implements OnDestroy {
    * onUpdate : updateHandler
    */
   updateHandler(item: { data: any, type: string }) {
-    console.log(item);
     if (item.type == UPDATE_TYPE.delete) {
 
       this.dialog.open(ConfirmDialogComponent, {}).afterClosed().pipe(takeUntil(this._destroy$)).subscribe(
@@ -56,18 +55,18 @@ export class ClassesListComponent implements OnDestroy {
         });
     } else if (item.type == UPDATE_TYPE.view) {
       this.classesService.getClassById(item.data['id']).pipe(takeUntil(this._destroy$)).subscribe(
-        data => this.router.navigate([`/classes/${item.data['id']}`], { state: {...data,readonly:true} })
+        data => this.router.navigate([`/classes/${item.data['id']}`], { state: { ...data, readonly: true } })
       );
     } else {
       this.classesService.getClassById(item.data['id']).pipe(takeUntil(this._destroy$)).subscribe(
-        data => this.router.navigate([`/classes/${item.data['id']}`], { state: {...data,readonly:false} })
+        data => this.router.navigate([`/classes/${item.data['id']}`], { state: { ...data, readonly: false } })
       );
     }
   }
 
   addClass() {
-    this.router.navigate([`/classes/new-class`],{
-      state:{newClass:true}
+    this.router.navigate([`/classes/new-class`], {
+      state: { newClass: true }
     })
   }
 

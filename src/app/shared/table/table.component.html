@@ -1,4 +1,4 @@
-<div class="flex-col flex-center">
+<div class="flex-col flex-center" *ngIf="!(isLoading | async)">
     <mat-table [dataSource]="dataSource">
         <ng-container *ngFor="let colDef of colDefs" [matColumnDef]="colDef['def']">
             <mat-header-cell *matHeaderCellDef>
