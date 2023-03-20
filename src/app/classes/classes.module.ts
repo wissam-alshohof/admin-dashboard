@@ -3,17 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { ClassesRoutingModule } from './classes-routing.module';
 import { ClassesListComponent } from './classes-list/classes-list.component';
-import { ClassPreviewComponent } from './class-preview/class-preview.component';
+import { SharedModule } from '../shared/shared.module';
+import { ClassGymComponent } from './class-gym/class-gym.component';
 
 
 @NgModule({
   declarations: [
     ClassesListComponent,
-    ClassPreviewComponent
+    ClassGymComponent
   ],
   imports: [
     CommonModule,
-    ClassesRoutingModule
+    ClassesRoutingModule,
+    SharedModule
   ]
 })
 export class ClassesModule { }

@@ -1,1 +1,13 @@
-<p>classes-list works!</p>
+<mat-card>
+    <app-table
+    [data]="classes$"
+    [colDefs]="colDefs"
+    (onUpdate)="updateHandler($event)"
+    >
+    </app-table>
+    <mat-card-actions>
+        <button mat-button mat-raised-button color="primary" (click)="addClass()">
+            Add New Class
+        </button>
+    </mat-card-actions>
+</mat-card>
