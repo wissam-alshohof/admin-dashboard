@@ -8,11 +8,13 @@ import { MatCardModule } from '@angular/material/card'
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { CommonModule } from '@angular/common';
 import { ImgDirective } from './img.directive';
 import { TableComponent } from './table/table.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { LoaderComponent } from './loader/loader.component';
 
 
 
@@ -21,6 +23,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     ImgDirective,
     TableComponent,
     ConfirmDialogComponent,
+    LoaderComponent,
   ],
   imports: [
     CommonModule,
@@ -29,7 +32,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatPaginatorModule,
     MatDialogModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule
   ],
   entryComponents: [ConfirmDialogComponent],
   exports: [
@@ -42,7 +46,9 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatButtonModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule,
+    LoaderComponent
   ]
 })
 export class SharedModule { }
