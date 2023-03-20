@@ -9,12 +9,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 import { CommonModule } from '@angular/common';
 import { ImgDirective } from './img.directive';
 import { TableComponent } from './table/table.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { LoaderComponent } from './loader/loader.component';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 
 
 
@@ -24,6 +27,7 @@ import { LoaderComponent } from './loader/loader.component';
     TableComponent,
     ConfirmDialogComponent,
     LoaderComponent,
+    SnackbarComponent,
   ],
   imports: [
     CommonModule,
@@ -33,7 +37,8 @@ import { LoaderComponent } from './loader/loader.component';
     MatDialogModule,
     MatCardModule,
     MatButtonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSnackBarModule
   ],
   entryComponents: [ConfirmDialogComponent],
   exports: [
@@ -48,7 +53,8 @@ import { LoaderComponent } from './loader/loader.component';
     MatFormFieldModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    LoaderComponent
+    LoaderComponent,
+    MatSnackBarModule
   ]
 })
 export class SharedModule { }

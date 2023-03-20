@@ -13,6 +13,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HandlingLoadingInterceptor } from './handle-loading.interceptor';
+import { HandleErrorInterceptor } from './handle-error.interceptor';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,9 @@ import { HandlingLoadingInterceptor } from './handle-loading.interceptor';
   providers: [
     {
       provide: HTTP_INTERCEPTORS, useClass: HandlingLoadingInterceptor, multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS, useClass: HandleErrorInterceptor, multi: true
     }
   ],
   bootstrap: [AppComponent]
