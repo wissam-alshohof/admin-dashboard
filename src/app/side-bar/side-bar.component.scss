@@ -1,9 +1,10 @@
 .sidenav-container {
     height: 100%;
+    width: 100%;
 }
 
 .sidenav {
-    width: 200px;
+    width: fit-content;
 }
 
 .mat-toolbar.mat-primary {
@@ -18,10 +19,4 @@
 .active::before {
     background-color: var(--mdc-list-list-item-focus-state-layer-color);
     opacity: var(--mdc-list-list-item-focus-state-layer-opacity);
-}
-
-@media (max-width:500px) {
-    .mat-table {
-        overflow-x: auto;
-    }
 }

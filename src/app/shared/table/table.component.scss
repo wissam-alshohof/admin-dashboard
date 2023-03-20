@@ -7,10 +7,20 @@ mat-cell:has(mat-icon):hover {
     background-color: #aaa;
 }
 
+.cdk-table {
+    width: inherit;
+}
 mat-header-row {
     background-color: #6975b5;
 }
 
 mat-header-cell {
     color: white;
+}
+
+@media(max-width:550px) {
+    .cdk-table {
+        font-size: small;
+        overflow-x: auto;
+    }
 }
