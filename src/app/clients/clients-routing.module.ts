@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Route, RouterModule } from '@angular/router';
+import { ClientComponent } from './client/client.component';
 import { ClientsListComponent } from './clients-list/clients-list.component';
 
 const routes: Route[] = [
-  { path: '', component: ClientsListComponent}
+  { path: '', component: ClientsListComponent },
+  { path: ':id', component: ClientComponent },
+  { path: 'new-client', component: ClientComponent },
 ];
 
 @NgModule({

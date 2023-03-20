@@ -1,6 +1,14 @@
-<app-table
-[data]="clients$"
-[colDefs]="colDefs"
-(onUpdate)="updateHandler($event)"
->
-</app-table>
+<mat-card>
+
+    <app-table
+    [data]="clients$"
+    [colDefs]="colDefs"
+    (onUpdate)="updateHandler($event)"
+    >
+    </app-table>
+    <mat-card-actions>
+        <button mat-button mat-raised-button color="primary" (click)="addClient()">
+            Add New Client
+        </button>
+    </mat-card-actions>
+</mat-card>

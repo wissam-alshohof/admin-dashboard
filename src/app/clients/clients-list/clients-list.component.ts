@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { UPDATE_TYPE } from 'src/app/shared/enums';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clients-list',
@@ -12,14 +13,14 @@ import { UPDATE_TYPE } from 'src/app/shared/enums';
   styleUrls: ['./clients-list.component.scss']
 })
 export class ClientsListComponent implements OnDestroy {
-  
+
   // handle subscription
   _destroy$ = new Subject();
 
   //  client service CRUD
   clientsService = inject(ClientsService);
 
-
+  router = inject(Router);
   dialog = inject(MatDialog);
 
   /**
@@ -49,12 +50,21 @@ export class ClientsListComponent implements OnDestroy {
             this.clientsService.deleteClient(item.data).pipe(takeUntil(this._destroy$)).subscribe();
           }
         });
-    } else if(item.type == UPDATE_TYPE.view) {
-
-
+    } else if (item.type == UPDATE_TYPE.view) {
+      this.clientsService.getClientById(item.data['id']).pipe(takeUntil(this._destroy$)).subscribe(
+        data => this.router.navigate([`/clients/${item.data['id']}`], { state: {...data,readonly:true} })
+      );
     } else {
-
+      this.clientsService.getClientById(item.data['id']).pipe(takeUntil(this._destroy$)).subscribe(
+        data => this.router.navigate([`/clients/${item.data['id']}`], { state: {...data,readonly:false} })
+      );
     }
+  }
+
+  addClient() {
+    this.router.navigate([`/clients/new-client`],{
+      state:{newUser:true}
+    })
   }
 
   ngOnDestroy(): void {

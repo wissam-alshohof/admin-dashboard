@@ -1,0 +1,16 @@
+.img-container {
+    display: flex;
+    height:180px;
+    margin-bottom: 20px;
+}
+
+mat-form-field {
+    box-sizing: border-box;
+    margin: 2px 5px;
+}
+.field-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-inline-start: 3%;
+    min-width: 100%;
+}

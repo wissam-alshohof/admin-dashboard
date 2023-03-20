@@ -15,16 +15,20 @@ export class ClientsService {
   getClients() : Observable<Client[]>{
     return this.http.get(APIS.clients) as Observable<Client[]>;
   }
+  getClientById(id:string) : Observable<Client> {
+    return this.http.get(APIS.clientById+id) as Observable<Client>;
+
+  }
 
   addClient(client:Omit<Client,'id'>):Observable<Client> {
     return this.http.post(APIS.clients,client) as Observable<Client>;
   }
 
   updateClient(client:Client) : Observable<Client> {
-    return this.http.put(APIS.clients,client) as Observable<Client>;
+    return this.http.put(APIS.clientById+client.id,client) as Observable<Client>;
   }
 
   deleteClient({id}:{id:string}): Observable<Client> {
-    return this.http.delete(APIS.deleteClient+id) as Observable<Client>;
+    return this.http.delete(APIS.clientById+id) as Observable<Client>;
   }
 }

@@ -6,6 +6,8 @@ import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatCardModule } from '@angular/material/card'
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { CommonModule } from '@angular/common';
 import { ImgDirective } from './img.directive';
@@ -29,16 +31,18 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatCardModule,
     MatButtonModule
   ],
-  entryComponents:[ConfirmDialogComponent],
-  exports: [ 
-    ImgDirective, 
-    MatIconModule, 
-    MatTableModule, 
-    MatPaginatorModule, 
+  entryComponents: [ConfirmDialogComponent],
+  exports: [
+    ImgDirective,
+    MatIconModule,
+    MatTableModule,
+    MatPaginatorModule,
     TableComponent,
     MatCardModule,
     MatButtonModule,
     FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class SharedModule { }

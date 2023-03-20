@@ -1,16 +1,16 @@
-import { Directive, ElementRef, HostBinding, HostListener, Input } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, HostBinding, HostListener, Input } from '@angular/core';
 
 @Directive({
-  selector: 'img[src]'
+  selector: 'img, img[dynamic]'
 })
 export class ImgDirective {
 
-  @Input('src') src!:string ;
+  @Input('src') src!: string;
 
   srcImageNotFound = "/assets/placeHolder.jpg";
   srcLoading = "/assets/loading.jpg";
 
-  
+
   @HostListener('error')
   onError() {
     this.eleRef.nativeElement.src = this.srcImageNotFound;
@@ -21,7 +21,7 @@ export class ImgDirective {
     this.eleRef.nativeElement.style.width = 'initial';
   }
 
-  constructor(private eleRef:ElementRef<HTMLImageElement>) {
-   }
+  constructor(private eleRef: ElementRef<HTMLImageElement>) {
+  }
 
 }
